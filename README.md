@@ -107,3 +107,122 @@ ayaka-frost/
 
 - **软件代码**：采用 [MIT 许可证](LICENSE)。
 - **图片与角色素材**：不属于 MIT 授权范围，权利归相应权利人所有；具体说明见 [NOTICE](NOTICE)。部分图片的作者与再分发授权尚待核实，公开分发相关素材前需确认相应许可。
+
+
+# Ayaka Frost · Spring Letter
+
+A **Kamisato Ayaka theme plugin for DeepSeek Harness (DSH)**, inspired by *Genshin Impact*.
+
+Featuring a blue-and-white palette with subtle pink accents, this theme combines Ayaka’s Springbloom Missive artwork, a chibi sidebar background, blue butterflies, and watercolor flowers for a soft, elegant chat interface.
+
+## Features
+
+- **Ayaka backgrounds** — Springbloom Missive artwork in the main area and a chibi Ayaka wallpaper in the sidebar.
+- **Coordinated colors** — Themed text, menus, controls, and input surfaces, with light and dark modes following DSH.
+- **Full-width reply cards** — Assistant replies fill the available message area, framed by fine borders and subtle floral details.
+- **Decorated input box** — Soft highlights, gentle shadows, blue butterflies, and watercolor flowers.
+- **Compact sidebar** — No additional theme settings panel taking space away from workspaces and conversations.
+- **Readable long content** — Code blocks and wide tables support horizontal scrolling. Wide tables stay inside reply cards.
+- **Bundled assets** — Runtime artwork is included with the plugin and does not require third-party image servers.
+
+This plugin changes visual presentation only. It does not modify model requests, prompts, or response content. Decorative elements do not intercept pointer interactions.
+
+## Screenshots
+
+The following screenshots show the theme running in the DSH desktop application.
+
+### Home and Workspace
+
+![Ayaka Frost home and workspace](docs/images/home.png)
+
+### Conversation and Reply Cards
+
+![Ayaka Frost conversation and reply cards](docs/images/chat.png)
+
+## Installation
+
+### DSH Desktop
+
+1. Download and extract the plugin archive.
+2. Move the `ayaka-frost` folder to a permanent location, such as `C:/Themes/ayaka-frost`.
+3. Open **Plugins → Add Plugin** in DSH.
+4. Enter the absolute path to the plugin folder. This folder must directly contain `package.json`.
+5. Enable the plugin as prompted, then restart DSH.
+
+Disable other interface themes before enabling this plugin to avoid overlapping styles. If you use a skin manager, also disable automatic activation of other themes.
+
+### CLI Web Profile
+
+Run the following command, replacing the path and profile name as needed:
+
+```powershell
+dsh plugin --profile web add 'C:/Themes/ayaka-frost'
+```
+
+Follow the host’s instructions to enable the plugin, then restart the corresponding DSH instance.
+
+CLI profiles and the desktop application are managed separately. Install the desktop plugin through the application’s plugin interface.
+
+### Updating and Disabling
+
+To update, remove the previous plugin entry in DSH, replace the plugin folder, add it again, and restart.
+
+Disable the plugin from the plugin list to restore the host’s appearance. If decorations from another character remain visible, check whether another theme or decoration plugin is still enabled.
+
+## Compatibility
+
+The declared host version range is:
+
+```text
+@deepseek-ai/dsh >=0.2.0-rc.2 <0.3.0-0
+```
+
+The theme targets the native DSH interface. Third-party distributions, plugins that replace chat rendering, and host versions outside this range may require additional adaptation.
+
+Browser-based checks cover light and dark modes, narrow layouts, reply cards, long code blocks, wide-table scrolling, scrollbar hover stability, and cleanup when disabled. These checks do not guarantee compatibility with every DSH release.
+
+## Development
+
+Node.js is required. Run the following command from the project root:
+
+```powershell
+npm run build
+```
+
+The build script uses only Node.js built-in modules, so no additional build dependencies are required. It bundles styles and runtime artwork into `lib/client.js` and checks that the plugin icon stays within the 256 KiB size limit.
+
+Rebuild after modifying `src/` or runtime assets. Include the corresponding `lib/` output when distributing the plugin from source.
+
+```text
+ayaka-frost/
+├── assets/              Artwork, decorations, and plugin icon
+├── docs/images/         Screenshots used in the README
+├── lib/                 Ready-to-load plugin output
+├── locale/              Localized plugin metadata
+├── scripts/             Build script
+├── src/                 Client logic and theme styles
+├── cordis.patch.yml     DSH plugin loading configuration
+├── package.json         Package metadata
+├── README.md            Chinese project introduction
+├── README.en.md         English project introduction
+├── LICENSE              Software license
+└── NOTICE               Artwork attribution and rights information
+```
+
+## Reporting Issues
+
+When reporting a visual or interaction issue, please include:
+
+- Your DSH version and operating system.
+- Other active interface plugins.
+- A screenshot or short recording.
+- Reproducible sample content for table or code-block issues.
+
+## Credits and License
+
+The plugin interface and loading approach reference [dsh-deep-whale](https://github.com/Small-tailqwq/dsh-deep-whale).
+
+This is an unofficial personal theme project and is not affiliated with HoYoverse, miHoYo, or DeepSeek.
+
+- **Software code:** Licensed under the [MIT License](LICENSE).
+- **Artwork and character assets:** Excluded from the MIT license. Rights remain with their respective owners. See [NOTICE](NOTICE) for details. Attribution and redistribution permissions for some images have not yet been verified; confirm the applicable permissions before redistributing those assets.
