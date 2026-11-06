@@ -1,0 +1,59 @@
+{
+  "name": "dsh-client-ui-skin-ayaka-frost",
+  "version": "0.1.18",
+  "description": "白鹭霜华 · 花时来信，简洁侧栏的神里绫华 DSH 皮肤",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "assets/plugin-icon.png",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.0-rc.2 <0.3.0-0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "files": [
+    "lib",
+    "assets/spring.webp",
+    "locale",
+    "cordis.patch.yml",
+    "README.md",
+    "NOTICE",
+    "LICENSE",
+    "src",
+    "scripts",
+    "assets/chibi.jpg",
+    "assets/original-hair-knot.png",
+    "assets/spring-shoulder-bow.png",
+    "assets/blue-butterfly.png",
+    "assets/flower-watercolor.png",
+    "assets/gold-tassel.png",
+    "assets/plugin-icon.png"
+  ],
+  "license": "SEE LICENSE IN LICENSE"
+}
+
+
+
+
